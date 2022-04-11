@@ -1,0 +1,7 @@
+# Ignoring files
+*.csproj
+
+
+# Ignoring directories
+*/obj
+*/bin
