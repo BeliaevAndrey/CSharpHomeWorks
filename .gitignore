@@ -5,3 +5,4 @@
 # Ignoring directories
 */obj
 */bin
+.vscode
