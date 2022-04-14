@@ -100,7 +100,7 @@ int number1 = Convert.ToInt32(Console.ReadLine());    // ввести и кон�
 
 if(number1 < 2)    // Проверка корректности ввода
 {
-    Console.WriteLine("Incorrect input: number is too small. Inrrupting.");
+    Console.WriteLine("Incorrect input: number is too small. Interrupting.");
     System.Environment.Exit(0);    // Завершение процесса с передачей кода выхода 0 (процесс прошел успешно)
                                    // операционной системе.
                                    // Прочитано в документации:
