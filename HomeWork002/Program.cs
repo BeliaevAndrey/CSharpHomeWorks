@@ -80,7 +80,7 @@ string Hollyday(int day)
     }
 }
 
-Console.Write("Введите номер деня недели: ");
+Console.Write("Введите номер дня недели: ");
 int daynum = Convert.ToInt32(Console.ReadLine());
 Console.Write(daynum + " -> ");
 Console.WriteLine(Hollyday(daynum));
