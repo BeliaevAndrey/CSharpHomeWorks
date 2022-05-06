@@ -25,6 +25,7 @@ Console.WriteLine(FindSecond(num));
 // 78 -> третьей цифры нет
 // 32679 -> 6
 
+/*
 void Eliminate(int n)
 {
     if(n/100 <=0)
@@ -46,3 +47,65 @@ Console.Write("Введите число: ");
 int num = Convert.ToInt32(Console.ReadLine());
 Console.Write(num + " -> ");
 Eliminate(num);
+*/
+
+// Задача 15: Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
+// 6 -> да
+// 7 -> да
+// 1 -> нет
+
+/*
+// Вариант 1:
+string Hollyday(int day)
+{
+    switch(day)
+    {
+        case 1:
+            return "Нет";
+        case 2:
+            return "Нет";
+        case 3:
+            return "Нет";
+        case 4:
+            return "Нет";
+        case 5:
+            return "Нет";
+        case 6:
+            return "Да";
+        case 7:
+            return "Да";
+        default:
+            return "Нет такого дня недели";
+
+    }
+}
+
+Console.Write("Введите номер деня недели: ");
+int daynum = Convert.ToInt32(Console.ReadLine());
+Console.Write(daynum + " -> ");
+Console.WriteLine(Hollyday(daynum));
+*/
+
+/*
+//Вариант 2:
+string Hollyday(int day)
+{
+    if(0 < day && day < 6)
+    {
+        return "Нет";
+    }
+    if(5 < day && day < 8)
+    {
+        return "Да";
+    }
+    else
+    {
+        return "Нет такого дня недели";
+    }
+}
+
+Console.Write("Введите номер деня недели: ");
+int daynum = Convert.ToInt32(Console.ReadLine());
+Console.Write(daynum + " -> ");
+Console.WriteLine(Hollyday(daynum));
+*/
