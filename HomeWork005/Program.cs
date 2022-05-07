@@ -47,3 +47,37 @@ Console.WriteLine($"{number} -> {SumDigits(number)}");
 // Задача 3: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
 // 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
 // 6, 1, 33 -> [6, 1, 33]
+
+/*
+int[] GenArray(int len)
+{
+    int[] array = new int[len];
+    for(int i = 0; i < len; i++)
+    {
+        array[i] = new Random().Next(0, 100);
+    }
+    return array;
+}
+
+void PrintArray(int[] arr)
+{
+    for(int i = 0; i < arr.Length; i++)
+    {
+        Console.Write(arr[i]);
+        if(i < arr.Length-1) Console.Write(", ");
+    }
+    
+    Console.Write(" -> [");
+    for(int i = 0; i < arr.Length; i++)
+    {
+        Console.Write(arr[i]);
+        if(i < arr.Length-1) Console.Write(", ");
+    }
+    Console.WriteLine("]");
+}
+
+Console.Write("Введите размер массива: ");          // В задаче указано 8 элементов, а в примерах произвольное количество
+int number = Convert.ToInt32(Console.ReadLine());
+
+PrintArray(GenArray(number));
+*/
