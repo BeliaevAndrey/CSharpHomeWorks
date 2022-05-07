@@ -5,6 +5,25 @@
 // 23432 -> да
 
 
+bool isPalindrome(int num)
+{
+    if(num / 10000 == num % 10 && (num / 1000) % 10 == (num % 100) / 10) return true;
+    else return false;
+}
+
+Console.Write("Введите 5-ти значное число: ");
+int number = Convert.ToInt32(Console.ReadLine());
+
+while(Convert.ToString(number).Length != 5)
+{
+    Console.WriteLine("Введено не 5-ти значное число, попробуйте снова");
+    number = Convert.ToInt32(Console.ReadLine());
+}
+
+if(isPalindrome(number)) 
+    Console.WriteLine($"Да, число {number} -- палиндром");
+else 
+    Console.WriteLine($"Нет, число {number} -- не палиндром");
 
 
 // Задача 21
@@ -24,7 +43,6 @@
 /*
 int[] Cubes(int num)
 {
-    Console.WriteLine("num = " + num);
     int[] result = new int[num];
     for(int i = 0; i < num; i++)
     {
@@ -48,16 +66,21 @@ Console.Write("Введите число: ");
 int limit = Convert.ToInt32(Console.ReadLine());
 PrintArray(Cubes(limit));
 */
-// Вариант 2
 
+
+// Вариант 2
+/*
 void Cubes(int num)
 {
-    Console.WriteLine("num = " + num);
-    int[] result = new int[num];
     for(int i = 0; i < num; i++)
     {
-        result[i] = Convert.ToInt32(Math.Pow(i+1, 3));
-        // Console.Write($"{result[i]}, ");
+        Console.Write(Convert.ToInt32(Math.Pow(i+1, 3)));
+        if(i < num - 1) Console.Write(", ");
     }
-    return result;
+    Console.WriteLine();
 }
+
+Console.Write("Введите число: ");
+int limit = Convert.ToInt32(Console.ReadLine());
+Cubes(limit);
+*/
