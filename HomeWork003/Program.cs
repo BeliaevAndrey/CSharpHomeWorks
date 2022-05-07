@@ -4,7 +4,8 @@
 // 12821 -> да
 // 23432 -> да
 
-
+// Вариант 1
+/*
 bool isPalindrome(int num)
 {
     if(num / 10000 == num % 10 && (num / 1000) % 10 == (num % 100) / 10) return true;
@@ -24,6 +25,36 @@ if(isPalindrome(number))
     Console.WriteLine($"Да, число {number} -- палиндром");
 else 
     Console.WriteLine($"Нет, число {number} -- не палиндром");
+*/
+
+// Вариант 2
+/*
+bool isPalindrome(string num)
+{
+    bool flag = false;
+    for(int i = 0; i < num.Length; i++)
+    {
+        if(num[i] == num[num.Length - 1 - i])
+            flag = true;
+        else
+            flag = false;
+    }
+    return flag;
+}
+Console.Write("Введите 5-ти значное число: ");
+string number = Console.ReadLine();
+
+while(number.Length != 5)
+{
+    Console.WriteLine("Введено не 5-ти значное число, попробуйте снова");
+    number = Console.ReadLine();
+}
+
+if(isPalindrome(number)) 
+    Console.WriteLine($"Да, число {number} -- палиндром");
+else 
+    Console.WriteLine($"Нет, число {number} -- не палиндром");
+*/
 
 
 // Задача 21
@@ -31,8 +62,33 @@ else
 // A (3,6,8); B (2,1,-7), -> 15.84
 // A (7,-5, 0); B (1,-1,9) -> 11.53
 
+/*
+double FindLength(double xA, double yA, double zA, double xB, double yB, double zB)
+{
+    return Math.Sqrt((xA-xB)*(xA-xB)+(yA-yB)*(yA-yB)+(zA-zB)*(zA-zB));
+}
 
 
+// Точка A
+Console.Write("Введите координату X точки A: ");
+double xDotA = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите координату Y точки A: ");
+double yDotA = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите координату Z точки A: ");
+double zDotA = Convert.ToDouble(Console.ReadLine());
+
+Console.WriteLine();
+// Точка B
+Console.Write("Введите координату X точки B: ");
+double xDotB = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите координату Y точки B: ");
+double yDotB = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите координату Z точки B: ");
+double zDotB = Convert.ToDouble(Console.ReadLine());
+
+double result = Math.Round(FindLength(xDotA, yDotA, zDotA, xDotB, yDotB, zDotB), 2);
+Console.WriteLine($"{xDotA}{yDotA}{zDotA};{xDotB}{yDotB}{zDotB} -> {result}");
+*/
 
 // Задача 23
 // Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
