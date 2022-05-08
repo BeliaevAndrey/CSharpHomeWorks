@@ -2,6 +2,8 @@
 // 0, 7, 8, -2, -2 -> 2
 // 1, -7, 567, 89, 223-> 3
 
+// Вариант 1.
+/*
 int[] digitsInput(int num)
 {
     int[] digits = new int[num];
@@ -27,13 +29,48 @@ Console.Write("Сколько чисел планируется ввести? ")
 int amt = Convert.ToInt32(Console.ReadLine());
 int[] nums = digitsInput(amt);
 CountPositive(nums);
+*/
 
+// Вариант 2.
+/*
+void CountPositive(int num)
+{
+    int count = 0;
+    int[] digits = new int[num];
+    for(int i = 0; i < num; i++)
+    {
+        Console.Write($"введите число {i+1}/{num}: ");
+        digits[i] = Convert.ToInt32(Console.ReadLine());
+        if(digits[i] > 0) count++;
+    }
+
+    Console.WriteLine($"{string.Join(", ", digits)} -> {count}");
+}
+
+Console.Write("Сколько чисел планируется ввести? ");
+int amt = Convert.ToInt32(Console.ReadLine());
+CountPositive(amt);
+*/
 
 // Задача 42: Напишите программу, которая будет преобразовывать десятичное число в двоичное.
 // 45 -> 101101
 // 3 -> 11
 // 2 -> 10
 
+string DecToBin(int num)
+{
+    string result = string.Empty;
+    while(num > 0)
+    {
+        result = Convert.ToString(num % 2) + result;
+        num /= 2;
+    }
+    return result;
+}
+
+Console.Write("Введите число для конвертации: ");
+int number = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine($"{number} -> {DecToBin(number)}");
 
 
 
