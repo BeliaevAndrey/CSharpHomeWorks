@@ -72,7 +72,7 @@ double[] FillArray(int len)
     double[] outarr = new double[len];
     for(int i = 0; i < len; i++)
     {
-        outarr[i] = Convert.ToDouble(new Random().Next(0, 101));
+        outarr[i] = Math.Round(new Random().NextDouble(), 3);
     }
     return outarr;
 }
@@ -88,7 +88,7 @@ double DiffMaxMin(double[] arr)
     }
     Console.WriteLine("max = " + max);
     Console.WriteLine("min = " + min);
-    return max - min;
+    return Math.Round((max - min), 3);
 }
 
 Console.Write("Задайте длину массива: ");
