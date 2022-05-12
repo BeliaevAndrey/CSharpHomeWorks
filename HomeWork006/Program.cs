@@ -52,6 +52,24 @@ double amt = Convert.Todouble32(Console.ReadLine());
 CountPositive(amt);
 */
 
+// Вариант 0 Canonical.
+/*
+Console.Write("Input number of elements: ");
+int kol = Convert.ToInt32(Console.ReadLine());
+int num;
+int count = 0;
+
+for (int i = 0; i < kol; i++)
+{
+    Console.Write("Input an element: ");
+    num = Convert.ToInt32(Console.ReadLine());
+    if (num > 0)
+        count++;
+}
+
+Console.WriteLine("Number of positive elements: " + count);
+*/
+
 // Задача 42: Напишите программу, которая будет преобразовывать десятичное число в двоичное.
 // 45 -> 101101
 // 3 -> 11
@@ -63,7 +81,7 @@ string DecToBin(double num)
     string result = string.Empty;
     while(num > 0)
     {
-        result = Convert.ToString(num % 2) + result;
+        result = Convert.ToString(num % 2) + result; // можно без конвертации (Canonical с семинара)
         num /= 2;
     }
     return result;
