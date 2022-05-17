@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Общие для всех задач методы
+// Общие для первых двух задач методы
 
 // Создание двумерного массива
 int[,] CreateArray(int rowsAmt, int colsAmt, int minVal, int maxVal)
@@ -121,31 +121,37 @@ PrintArray(SortArray(CreateArray(arrayParameters[0],    // Rows amount
 
 int LesserStringSum(int[,] matrix)
 {
-    int[] sums = new int[matrix.GetLength(0)];
-    int stringSum = 0, nextStringSum = 0, rowIndex = 1;
+    // int[] sums = new int[matrix.GetLength(0)];
+    int stringSum = 0, minStringSum = 0, rowIndex = 1;
     for(int i = 0; i < matrix.GetLength(0); i++)
     {
-        if(nextStringSum < stringSum)
-            rowIndex = i + 1;
-        nextStringSum = 0;
         stringSum = 0;
         for(int j = 0; j < matrix.GetLength(1); j++)
         {
-            stringSum += matrix[i, j];
-            if(i < matrix.GetLength(0) - 1)
-                nextStringSum += matrix[i + 1, j];
+            if(i == 0)
+            {                
+                minStringSum += matrix[i, j];
+                stringSum += matrix[i, j];
+            }
+            else
+                stringSum += matrix[i, j];
         }
-        sums[i] = stringSum;
+        if(minStringSum > stringSum)
+        {
+            rowIndex = i + 1;
+            minStringSum = stringSum;
+        }
+        // sums[i] = stringSum;
      }
-    Console.WriteLine(string.Join(", ", sums));
+    // Console.WriteLine(string.Join(", ", sums));
     return rowIndex;
 }
 
 int[] arrayParameters = ArrayParametersInput();
-int result = LesserStringSum(CreateArray(arrayParameters[0],
-                                         arrayParameters[1],
-                                         arrayParameters[2],
-                                         arrayParameters[3]
+int result = LesserStringSum(CreateArray(arrayParameters[0],    // Rows
+                                         arrayParameters[1],    // Columns
+                                         arrayParameters[2],    // Lower value of a range
+                                         arrayParameters[3]     // Upper value of a range
                                          ));
 
 Console.WriteLine($"Наименьшая сумма элементов в {result} строке.");
