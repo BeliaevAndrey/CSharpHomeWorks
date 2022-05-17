@@ -177,59 +177,26 @@ int[,] CreateSpriralArray(int m, int n)
         Console.WriteLine();
         PrintArray(array);
         Console.WriteLine();
+        Console.WriteLine($"way = {way}");
         Console.WriteLine($"i = {i}\trow={row}\tcol={column}\tlimit = {limit}\tdeltas: row={deltaRow} \t\tcol={deltaCol}");
         array[row, column] = i + 1;
 
-        limit -= 1;
-        if(limit == 0 && way == 0)
+        limit--;
+        if(limit == 0 && way%2 == 0)
         {
-            Console.WriteLine($"way = {way}");
             limit = m - column + 2;
+            // limit = m - column + 2;
             (deltaCol, deltaRow) = (-deltaRow, deltaCol);   // Swap axis
             way++;
+            Console.WriteLine($"1st if, Change way to {way}");
         }
-        else if(limit == 0 && way == 1)
+        else if(limit == 0 && way%2 != 0)
         {
-            Console.WriteLine($"way = {way}");
-            limit = m - column + 2;
-            (deltaCol, deltaRow) = (-deltaRow, deltaCol);   // Swap axis
-            way++;
-        }
-        else if(limit == 0 && way == 2)
-        {
-            Console.WriteLine($"way = {way}");
-            limit = m - column + 2;
-            (deltaCol, deltaRow) = (-deltaRow, deltaCol);   // Swap axis
-            way++;
-        }
-        else if(limit == 0 && way == 3)
-        {
-            Console.WriteLine($"way = {way}");
             limit = m - row + 2;
             (deltaCol, deltaRow) = (-deltaRow, deltaCol);
             way++;
-        }
-        else if(limit == 0 && way == 4)
-        {
-            Console.WriteLine($"way = {way}");
-            limit = m - column + 2;
-            (deltaCol, deltaRow) = (-deltaRow, deltaCol);
-            way++;
-        }
-        else if(limit == 0 && way == 5)
-        {
-            Console.WriteLine($"way = {way}");
-            limit = m - row + 2;
-            (deltaCol, deltaRow) = (-deltaRow, deltaCol);
-        }
-        else if(limit == 0 & way == 6)
-        {
-            Console.WriteLine($"way = {way}");
-            limit = m - column + 2;
-            (deltaCol, deltaRow) = (-deltaRow, deltaCol);
-            way++;
-        }
-        
+            Console.WriteLine($"2nd if, Change way to {way}");
+        }    
         
         row += deltaRow;
         column += deltaCol;
