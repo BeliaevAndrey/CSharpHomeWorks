@@ -118,7 +118,7 @@ PrintArray(SortArray(CreateArray(arrayParameters[0],    // Rows amount
 // 5   2   6   7
 // Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
 
-
+/*
 int LesserStringSum(int[,] matrix)
 {
     // int[] sums = new int[matrix.GetLength(0)];
@@ -155,6 +155,7 @@ int result = LesserStringSum(CreateArray(arrayParameters[0],    // Rows
                                          ));
 
 Console.WriteLine($"Наименьшая сумма элементов в {result} строке.");
+*/
 
 // Задача 62. Заполните спирально массив 4 на 4.
 // Например, на выходе получается вот такой массив:
@@ -164,4 +165,79 @@ Console.WriteLine($"Наименьшая сумма элементов в {resul
 // 11  16  15  6
 // 10  9   8   7
 
+
+int[,] CreateSpriralArray(int m, int n)
+{
+    int[,] array = new int[m, n];
+    int  row = 0, column = 0, deltaCol = 1, deltaRow = 0, limit = m, way = 0;
+    // way: right (1-4) 0, down (5-7) 1, left (8-10) 2, up (11-12) 3, right(13-14) 4, down(15) 5, left(16) 6
+
+    for(int i =0; i < m * n; i++)
+    {
+        Console.WriteLine();
+        PrintArray(array);
+        Console.WriteLine();
+        Console.WriteLine($"i = {i}\trow={row}\tcol={column}\tlimit = {limit}\tdeltas: row={deltaRow} \t\tcol={deltaCol}");
+        array[row, column] = i + 1;
+
+        limit -= 1;
+        if(limit == 0 && way == 0)
+        {
+            Console.WriteLine($"way = {way}");
+            limit = m - column + 2;
+            (deltaCol, deltaRow) = (-deltaRow, deltaCol);   // Swap axis
+            way++;
+        }
+        else if(limit == 0 && way == 1)
+        {
+            Console.WriteLine($"way = {way}");
+            limit = m - column + 2;
+            (deltaCol, deltaRow) = (-deltaRow, deltaCol);   // Swap axis
+            way++;
+        }
+        else if(limit == 0 && way == 2)
+        {
+            Console.WriteLine($"way = {way}");
+            limit = m - column + 2;
+            (deltaCol, deltaRow) = (-deltaRow, deltaCol);   // Swap axis
+            way++;
+        }
+        else if(limit == 0 && way == 3)
+        {
+            Console.WriteLine($"way = {way}");
+            limit = m - row + 2;
+            (deltaCol, deltaRow) = (-deltaRow, deltaCol);
+            way++;
+        }
+        else if(limit == 0 && way == 4)
+        {
+            Console.WriteLine($"way = {way}");
+            limit = m - column + 2;
+            (deltaCol, deltaRow) = (-deltaRow, deltaCol);
+            way++;
+        }
+        else if(limit == 0 && way == 5)
+        {
+            Console.WriteLine($"way = {way}");
+            limit = m - row + 2;
+            (deltaCol, deltaRow) = (-deltaRow, deltaCol);
+        }
+        else if(limit == 0 & way == 6)
+        {
+            Console.WriteLine($"way = {way}");
+            limit = m - column + 2;
+            (deltaCol, deltaRow) = (-deltaRow, deltaCol);
+            way++;
+        }
+        
+        
+        row += deltaRow;
+        column += deltaCol;
+
+    }   
+
+    return array;
+}
+
+CreateSpriralArray(4, 4);
 
