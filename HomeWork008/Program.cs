@@ -183,7 +183,7 @@ int[,] CreateSpriralArray(int m, int n)
             (deltaCol, deltaRow) = (-deltaRow, deltaCol);   // swap axis
             way++;
         }
-        if(limit == 0 && way%2 != 0)     // Не квадратная матрица
+        if(limit == 0 && way%2 != 0)
         {
             limit = n - way / 2 -1;
             (deltaCol, deltaRow) = (-deltaRow, deltaCol);
