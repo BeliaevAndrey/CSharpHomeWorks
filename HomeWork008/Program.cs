@@ -172,7 +172,6 @@ int[,] CreateSpriralArray(int m, int n)
 
     for (int i = 0; i < m * n; i++)
     {
-        Console.WriteLine();
         array[row, column] = i + 1;
 
         limit--;
