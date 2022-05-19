@@ -121,7 +121,6 @@ PrintArray(SortArray(CreateArray(arrayParameters[0],    // Rows amount
 /*
 int LesserStringSum(int[,] matrix)
 {
-    // int[] sums = new int[matrix.GetLength(0)];
     int stringSum = 0, minStringSum = 0, rowIndex = 1;
     for(int i = 0; i < matrix.GetLength(0); i++)
     {
@@ -141,9 +140,7 @@ int LesserStringSum(int[,] matrix)
             rowIndex = i + 1;
             minStringSum = stringSum;
         }
-        // sums[i] = stringSum;
      }
-    // Console.WriteLine(string.Join(", ", sums));
     return rowIndex;
 }
 
@@ -169,28 +166,29 @@ Console.WriteLine($"Наименьшая сумма элементов в {resul
 int[,] CreateSpriralArray(int m, int n)
 {
     int[,] array = new int[m, n];
-    int row = 0, column = 0, deltaCol = 1, deltaRow = 0, limit = m, way = 0, tmp = m;
+    int row = 0, column = 0, deltaCol = 1, deltaRow = 0, limit = 0, way = 0, tmp = m;
     // way: right (1-4) 0, down (5-7) 1, left (8-10) 2, up (11-12) 3, right(13-14) 4, down(15) 5, left(16) 6
+    if(m > n)
+        limit = m;
+    else
+        limit = n;
 
-    for (int i = 0; i <= m * n; i++)
+    for (int i = 0; i < m * n; i++)
     {
-        Console.WriteLine();
         PrintArray(array);
         Console.WriteLine();
-        Console.WriteLine($"way = {way}, way%2 = {way % 2}, way/2 = {way / 2}");
-        Console.WriteLine($"i = {i}\trow={row}\tcol={column}\tlimit = {limit}\tdeltas: row={deltaRow} \t\tcol={deltaCol}");
         array[row, column] = i + 1;
 
         limit--;
         if(limit == 0 && way%2 == 0)
         {
-            limit = n - way / 2 -1;
+            limit = m - way / 2 - 1;
             (deltaCol, deltaRow) = (-deltaRow, deltaCol);   // swap axis
             way++;
         }
-        if(limit == 0 && way%2 != 0)
+        if(limit == 0 && way%2 != 0)     // Прямоугольная матрица
         {
-            limit = m - way / 2 -1;
+            limit = n - way / 2 -1;
             (deltaCol, deltaRow) = (-deltaRow, deltaCol);
             way++;
         }
@@ -202,5 +200,18 @@ int[,] CreateSpriralArray(int m, int n)
     return array;
 }
 
-CreateSpriralArray(4, 4);
+int rowsTask3 =0, colsTask3 = 0;
+while (true)
+{
+    Console.Write("Введите количество строк (начиная с 1): ");
+    rowsTask3 = Convert.ToInt32(Console.ReadLine());
+    Console.Write("Введите количество столбцов (начиная с 1): ");
+    colsTask3 = Convert.ToInt32(Console.ReadLine());
+    if (rowsTask3 > 0 && colsTask3 > 0)
+        break;
+    else
+        Console.WriteLine("Количество и строк и столбцов должно быть больше 0. Пожалуйста повторите попытку.");
+}
+
+PrintArray(CreateSpriralArray(rowsTask3, colsTask3));
 
