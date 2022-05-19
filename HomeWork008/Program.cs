@@ -6,9 +6,9 @@
 int[,] CreateArray(int rowsAmt, int colsAmt, int minVal, int maxVal)
 {
     int[,] array = new int[rowsAmt, colsAmt];
-    for(int i = 0; i < rowsAmt; i++)
+    for (int i = 0; i < rowsAmt; i++)
     {
-        for(int j = 0; j < colsAmt; j++)
+        for (int j = 0; j < colsAmt; j++)
         {
             array[i, j] = new Random().Next(minVal, maxVal + 1);
         }
@@ -21,9 +21,9 @@ int[,] CreateArray(int rowsAmt, int colsAmt, int minVal, int maxVal)
 // Вывод двумерного массива
 void PrintArray(int[,] matrix)
 {
-    for(int i = 0; i < matrix.GetLength(0); i++)
+    for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        for(int j = 0; j < matrix.GetLength(1); j++)
+        for (int j = 0; j < matrix.GetLength(1); j++)
         {
             Console.Write(matrix[i, j] + "\t");
         }
@@ -36,13 +36,13 @@ int[] ArrayParametersInput()
 {
     int rows = 0, cols = 0;
 
-    while(true) 
+    while (true)
     {
         Console.Write("Введите количество строк (начиная с 1): ");
         rows = Convert.ToInt32(Console.ReadLine());
         Console.Write("Введите количество столбцов (начиная с 1): ");
         cols = Convert.ToInt32(Console.ReadLine());
-        if(rows > 0 && cols > 0)
+        if (rows > 0 && cols > 0)
             break;
         else
             Console.WriteLine("Количество и строк и столбцов должно быть больше 0. Пожалуйста повторите попытку.");
@@ -53,7 +53,7 @@ int[] ArrayParametersInput()
     Console.Write("Введите верхнюю границу диапазона значений: ");
     int upperValue = Convert.ToInt32(Console.ReadLine());
 
-    int[] paramsOut = {rows, cols, lowerValue, upperValue};
+    int[] paramsOut = { rows, cols, lowerValue, upperValue };
     return paramsOut;
 
 }
@@ -169,39 +169,35 @@ Console.WriteLine($"Наименьшая сумма элементов в {resul
 int[,] CreateSpriralArray(int m, int n)
 {
     int[,] array = new int[m, n];
-    int  row = 0, column = 0, deltaCol = 1, deltaRow = 0, limit = m, way = 0;
+    int row = 0, column = 0, deltaCol = 1, deltaRow = 0, limit = m, way = 0, tmp = m;
     // way: right (1-4) 0, down (5-7) 1, left (8-10) 2, up (11-12) 3, right(13-14) 4, down(15) 5, left(16) 6
 
-    for(int i =0; i < m * n; i++)
+    for (int i = 0; i <= m * n; i++)
     {
         Console.WriteLine();
         PrintArray(array);
         Console.WriteLine();
-        Console.WriteLine($"way = {way}");
+        Console.WriteLine($"way = {way}, way%2 = {way % 2}, way/2 = {way / 2}");
         Console.WriteLine($"i = {i}\trow={row}\tcol={column}\tlimit = {limit}\tdeltas: row={deltaRow} \t\tcol={deltaCol}");
         array[row, column] = i + 1;
 
         limit--;
         if(limit == 0 && way%2 == 0)
         {
-            limit = m - column + 2;
-            // limit = m - column + 2;
-            (deltaCol, deltaRow) = (-deltaRow, deltaCol);   // Swap axis
+            limit = n - way / 2 -1;
+            (deltaCol, deltaRow) = (-deltaRow, deltaCol);   // swap axis
             way++;
-            Console.WriteLine($"1st if, Change way to {way}");
         }
-        else if(limit == 0 && way%2 != 0)
+        if(limit == 0 && way%2 != 0)
         {
-            limit = m - row + 2;
+            limit = m - way / 2 -1;
             (deltaCol, deltaRow) = (-deltaRow, deltaCol);
             way++;
-            Console.WriteLine($"2nd if, Change way to {way}");
-        }    
-        
+        }
         row += deltaRow;
         column += deltaCol;
 
-    }   
+    }
 
     return array;
 }
