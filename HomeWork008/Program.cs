@@ -168,10 +168,7 @@ int[,] CreateSpriralArray(int m, int n)
     int[,] array = new int[m, n];
     int row = 0, column = 0, deltaCol = 1, deltaRow = 0, limit = 0, way = 0, tmp = m;
     // way: right (1-4) 0, down (5-7) 1, left (8-10) 2, up (11-12) 3, right(13-14) 4, down(15) 5, left(16) 6
-    if(m > n)
-        limit = m;
-    else
-        limit = n;
+    limit = n;
 
     for (int i = 0; i < m * n; i++)
     {
@@ -186,7 +183,7 @@ int[,] CreateSpriralArray(int m, int n)
             (deltaCol, deltaRow) = (-deltaRow, deltaCol);   // swap axis
             way++;
         }
-        if(limit == 0 && way%2 != 0)     // Прямоугольная матрица
+        if(limit == 0 && way%2 != 0)     // Не квадратная матрица
         {
             limit = n - way / 2 -1;
             (deltaCol, deltaRow) = (-deltaRow, deltaCol);
