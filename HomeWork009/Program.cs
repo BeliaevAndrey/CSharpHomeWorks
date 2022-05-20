@@ -24,7 +24,7 @@ int SumOfNaturals(int m, int n)
     if(n != m)
     {
         Console.WriteLine(m + "\t" + n);
-        return SumOfNaturals(m, n - 1);
+        return SumOfNaturals(m + n, n - 1);
     }
     return m;
 }
@@ -52,7 +52,7 @@ Console.WriteLine($"{startNum}; {finNum} -> {SumOfNaturals(startNum, finNum)}");
 // 45 -> 9
 
 
-
+/*
 int SumOfDigits(int n, int result)
 {
     if(n / 10 == 0)
@@ -65,5 +65,5 @@ int SumOfDigits(int n, int result)
 Console.WriteLine("Введите целое число: ");
 int number = Convert.ToInt32(Console.ReadLine());;
 Console.WriteLine("Сумма: " + number + " -> " + SumOfDigits(number, number % 10));
-
+*/
 
