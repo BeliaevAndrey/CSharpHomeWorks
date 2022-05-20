@@ -5,54 +5,45 @@ using System.Threading;
 // M = 1; N = 15 -> 120
 // M = 4; N = 8. -> 30
 
+/*
 
-int SumOfNaturalsControl(int m, int n)
+int SumOfNaturals(int m, int n, int steps = 0)
 {
-    int k = n;
-    for(int i = m; i < k; i++)
-    {
-        Console.WriteLine(i + "\t" + m + "\t" + n);
-        m += (n--) ;
-    }
+    if(steps == 0 && m - n < 0)
+        steps = n - m;
+    
+    if(steps != 0)
+        return SumOfNaturals(m + n, n - 1, --steps);
+   
     return m;
 }
 
-
-int SumOfNaturals(int m, int n)
+int startNum = 0, finNum = 0;
+while(true)
 {
-    int result = n;
-    if(n != m)
-    {
-        Console.WriteLine(m + "\t" + n);
-        return SumOfNaturals(m + n, n - 1);
-    }
-    return m;
+    Console.WriteLine("Введите первое целое число M: ");
+    startNum = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите второе целое число N > M: ");
+    finNum = Convert.ToInt32(Console.ReadLine());
+
+    if(finNum > startNum)
+        break;
+    else
+        Console.WriteLine("Ошибка ввода: второе число должно быть больше первого. Пожалуйста, повторите попытку.");
 }
-
-// Console.WriteLine("Введите первое целое число M: ");
-// int startNum = Convert.ToInt32(Console.ReadLine());
-// Console.WriteLine("Введите второе целое число N: ");
-// int finNum = Convert.ToInt32(Console.ReadLine());
-
-var (startNum, finNum) = (1, 15);
-
-Console.WriteLine();
-Console.WriteLine($"{startNum}; {finNum} -> {SumOfNaturalsControl(startNum, finNum)}");
-
-
-// (startNum, finNum) = (1, 15);
 
 Console.WriteLine();
 Console.WriteLine($"{startNum}; {finNum} -> {SumOfNaturals(startNum, finNum)}");
 
+*/
 
 
 // Задача 67: Напишите программу, которая будет принимать на вход число и возвращать сумму его цифр.
 // 453 -> 12
 // 45 -> 9
 
-
 /*
+
 int SumOfDigits(int n, int result)
 {
     if(n / 10 == 0)
@@ -65,5 +56,6 @@ int SumOfDigits(int n, int result)
 Console.WriteLine("Введите целое число: ");
 int number = Convert.ToInt32(Console.ReadLine());;
 Console.WriteLine("Сумма: " + number + " -> " + SumOfDigits(number, number % 10));
+
 */
 
