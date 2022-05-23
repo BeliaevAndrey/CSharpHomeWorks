@@ -166,7 +166,7 @@ Console.WriteLine($"Наименьшая сумма элементов в {resul
 int[,] CreateSpriralArray(int m, int n)
 {
     int[,] array = new int[m, n];
-    int row = 0, column = 0, deltaCol = 1, deltaRow = 0, limit = 0, way = 0, tmp = m;
+    int row = 0, column = 0, deltaCol = 1, deltaRow = 0, limit = 0, way = 0;
     // way: right (1-4) 0, down (5-7) 1, left (8-10) 2, up (11-12) 3, right(13-14) 4, down(15) 5, left(16) 6
     limit = n;
 

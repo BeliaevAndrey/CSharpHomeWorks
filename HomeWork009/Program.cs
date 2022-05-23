@@ -5,8 +5,7 @@ using System.Threading;
 // M = 1; N = 15 -> 120
 // M = 4; N = 8. -> 30
 
-/*
-
+// Вариант 1.
 int SumOfNaturals(int m, int n, int steps = 0)
 {
     if(steps == 0 && m - n < 0)
@@ -17,6 +16,17 @@ int SumOfNaturals(int m, int n, int steps = 0)
    
     return m;
 }
+
+// Вариант 2.
+int SumOfNaturals2(int m, int n)
+{
+    if(m <= n)
+    {
+        return m + SumOfNaturals(m + 1, n);
+    }    
+    return 0;
+}
+
 
 int startNum = 0, finNum = 0;
 while(true)
@@ -32,10 +42,19 @@ while(true)
         Console.WriteLine("Ошибка ввода: второе число должно быть больше первого. Пожалуйста, повторите попытку.");
 }
 
-Console.WriteLine();
-Console.WriteLine($"{startNum}; {finNum} -> {SumOfNaturals(startNum, finNum)}");
 
-*/
+Console.WriteLine("Вариант 1.");
+DateTime dt1 = DateTime.Now.ToLocalTime();
+Console.WriteLine($"{startNum}; {finNum} -> {SumOfNaturals(startNum, finNum)}");
+double resTime1 = (DateTime.Now.ToLocalTime() - dt1).TotalMilliseconds;
+
+Console.WriteLine("Вариант 2.");
+DateTime dt2 = DateTime.Now;
+Console.WriteLine($"{startNum}; {finNum} -> {SumOfNaturals2(startNum, finNum)}");
+double resTime2 = (DateTime.Now - dt2).TotalMilliseconds;
+
+
+Console.WriteLine($"Время выполнения. Вариант 1: {resTime1} Вариант 2: {resTime2}");
 
 
 // Задача 67: Напишите программу, которая будет принимать на вход число и возвращать сумму его цифр.
