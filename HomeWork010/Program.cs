@@ -6,15 +6,34 @@ using System.Collections;
 
 
 
+int VowelCount(string[] array)
+{
+    int count = 0;
+    char[] vowels = "aeiouy".ToCharArray();
 
+    foreach(string word in array)
+        foreach(char letter in vowels)
+            if(word.StartsWith(letter))
+                count++;
 
+    return count;
+}
 
+string[] firstTaskArray1 = { "qwe", "wer", "ert", "rty", "tyu"};
+Console.Write("{" + string.Join(", ", firstTaskArray1) + "} -> ");
+Console.WriteLine(VowelCount(firstTaskArray1));
+Console.WriteLine();
 
+string[] firstTaskArray2 = { "ewq", "wer", "ert", "ytr", "tyu"};
+Console.Write("{" + string.Join(", ", firstTaskArray2) + "} -> ");
+Console.WriteLine(VowelCount(firstTaskArray2));
+Console.WriteLine();
 
 
 // Задача 2: Задайте массив строк. Напишите программу, которая генерирует новый массив, объединяя элементы исходного массива попарно.
 // Пример: { "qwe", "wer", "ert", "rty", "tyu", "yui"} -> { "qwewer", "ertrty", "tyuyui"}
 
+/*
 string[] PairConcat(string[] array)
 {
     int arLen = array.Length / 2 + array.Length % 2;
@@ -70,3 +89,4 @@ Console.WriteLine("{\"" + string.Join("\", \"", testArray2)+ "\"" + "} -> {" + "
 Console.WriteLine();
 Console.WriteLine("{\"" + string.Join("\", \"", testArray3)+ "\"" + "} \n {" + "\"" + string.Join("\", \"", PairConcat(testArray3)) + "\"}");
 
+*/
