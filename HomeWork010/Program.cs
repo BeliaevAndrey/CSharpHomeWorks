@@ -4,6 +4,7 @@
 // Пример: { "qwe", "wer", "ert", "rty", "tyu"} -> 1
 
 /*
+// Вариант 1.
 
 int VowelCount(string[] array)
 {
@@ -26,6 +27,42 @@ Console.WriteLine();
 string[] firstTaskArray2 = { "ewq", "wer", "Ert", "ytr", "tyu"};
 Console.Write("{" + string.Join(", ", firstTaskArray2) + "} -> ");
 Console.WriteLine(VowelCount(firstTaskArray2));
+Console.WriteLine();
+
+*/
+
+// Вариант 2.
+
+/*
+
+int VowelCount2(string[] array)
+{
+    int count = 0;
+    string vowels = "aeiouy";
+
+    for(int i = 0; i < array.Length; i++)
+    {    
+        for(int j = 0; j < vowels.Length; j++)
+        {
+            // Console.WriteLine(array[i].ToLower()[0] + " " + array[i] + " " + vowels[j]);
+            if(array[i].ToLower()[0] == vowels[j])
+            {
+                // Console.WriteLine(array[i][0] + " " + vowels[j]);
+                count++;
+            }
+        }
+    }
+    return count;
+}
+
+string[] firstTaskArray1 = { "qwe", "wer", "ert", "rty", "tyu"};
+Console.Write("{" + string.Join(", ", firstTaskArray1) + "} -> ");
+Console.WriteLine(VowelCount2(firstTaskArray1));
+Console.WriteLine();
+
+string[] firstTaskArray2 = { "ewq", "wer", "Ert", "ytr", "tyu"};
+Console.Write("{" + string.Join(", ", firstTaskArray2) + "} -> ");
+Console.WriteLine(VowelCount2(firstTaskArray2));
 Console.WriteLine();
 
 */
